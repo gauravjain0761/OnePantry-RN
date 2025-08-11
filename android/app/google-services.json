@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "258235772106",
+    "project_id": "onepantry-us",
+    "storage_bucket": "onepantry-us.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258235772106:android:19b9a041382342c5d6d833",
+        "android_client_info": {
+          "package_name": "com.onepantryrn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258235772106-uglfk1bteaoggr4qrnqo2t74q6oacndn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.onepantryrn",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "258235772106-v8i8kdosmcn77kuutbcitvkv89il2hmj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdP3-szph_XQ2-p_bVZeW_DAANpuQuEzY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258235772106-v8i8kdosmcn77kuutbcitvkv89il2hmj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "258235772106-h66r73i7svqv6gv11nq7p88idddev02g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.onepantryrn"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

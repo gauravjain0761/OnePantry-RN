@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>258235772106-h66r73i7svqv6gv11nq7p88idddev02g.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.258235772106-h66r73i7svqv6gv11nq7p88idddev02g</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>258235772106-uglfk1bteaoggr4qrnqo2t74q6oacndn.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC5N8uDW34uRJDjcZ1giCSuidy1WVsFo3E</string>
+	<key>GCM_SENDER_ID</key>
+	<string>258235772106</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.onepantryrn</string>
+	<key>PROJECT_ID</key>
+	<string>onepantry-us</string>
+	<key>STORAGE_BUCKET</key>
+	<string>onepantry-us.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:258235772106:ios:c0bd67e155c79d68d6d833</string>
+</dict>
+</plist>

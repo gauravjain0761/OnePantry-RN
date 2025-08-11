@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">OnePantryRN</string>
+    <string name="facebook_app_id">205540092349151</string>
+    <string name="facebook_client_token">85c8e3aa22798e6e306fa9fc952475f6</string>
+    <string name="fb_login_protocol_scheme">fb205540092349151</string>
+</resources>
