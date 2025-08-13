@@ -16,7 +16,9 @@ export default (onPressGoogle, onPressFacebook) => {
         userInfo?.idToken,
       );
       await auth().signInWithCredential(googleCredential);
+      console.log('userInfo', userInfo);
       onPressGoogle({...userInfo?.user, idToken: userInfo?.idToken});
+      
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         showPopup(GoogleError.heading, true);
