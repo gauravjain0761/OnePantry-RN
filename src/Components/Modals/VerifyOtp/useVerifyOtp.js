@@ -1,24 +1,24 @@
-import {useCallback, useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {useVerifyOtpMutation} from '../../../Services';
-import {ScreenNames} from '../../../Constant';
+import { useCallback, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { useVerifyOtpMutation } from "../../../Services";
+import { ScreenNames } from "../../../Constant";
 
-export default email => {
+export default (email) => {
   const [isVisible, setVisible] = useState(false);
-  const [code, setCode] = useState('');
-  const [verifyOtp, {isLoading}] = useVerifyOtpMutation();
-  const {reset} = useNavigation();
+  const [code, setCode] = useState("");
+  const [verifyOtp, { isLoading }] = useVerifyOtpMutation();
+  const { reset } = useNavigation();
   const onClose = useCallback(() => {
     setVisible(false);
   }, [setVisible]);
   const resetHandler = useCallback(() => {
-    setVisible(false);
+    onClose();
     setTimeout(() => {
       reset({
         index: 0,
-        routes: [{name: ScreenNames.DrawerStack}],
+        routes: [{ name: ScreenNames.DrawerStack }],
       });
-    }, 100);
+    }, 200);
   }, []);
   const onVerifyHandler = useCallback(async () => {
     const response = await verifyOtp({

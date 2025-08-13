@@ -1,9 +1,11 @@
+import { Dimensions } from "react-native";
 
-import { Dimensions } from "react-native"
+export const wp = (Value) => {
+  return (Dimensions.get("window").width / 100) * Value;
+};
+export const hp = (Value) => {
+  return (Dimensions.get("window").height / 100) * Value;
+};
 
-export const wp =(Value)=>{
-    return Dimensions.get('window').width/100*Value
-}
-export const hp =(Value)=>{
-    return Dimensions.get('window').height/100*Value
-}
+export const { height: SCREEN_HEIGHT, width: SCREEN_WIDTH } =
+  Dimensions.get("window");

@@ -1,17 +1,19 @@
-import {View, Text, Image, ActivityIndicator} from 'react-native';
-import React, {useContext, useEffect, useState} from 'react';
-import BackComponent from '../../Components/BackComponent';
-import {IMAGE, COLORS} from '../../Constant/Images';
-import YourCartComponent from '../../Components/YourCartComponent';
-import Button from '../../Components/Button';
-import {useNavigation, useIsFocused} from '@react-navigation/native';
-import {hp, wp} from '../../Components/Config';
-import {ShopContext} from '../../Providers/ShopProvidre';
-import {Image_URL} from '../../Providers';
-import {ScrollView} from 'react-native-gesture-handler';
-import {SuccessPopup} from '../../Components/AlertPopup';
-import {AppContext} from '../../Providers/AppProvider';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { View, Text, Image, ActivityIndicator } from "react-native";
+import React, { useContext, useEffect, useState } from "react";
+import BackComponent from "../../Components/BackComponent";
+import { IMAGE, COLORS } from "../../Constant/Images";
+import YourCartComponent from "../../Components/YourCartComponent";
+import Button from "../../Components/Button";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
+import { hp, wp } from "../../Components/Config";
+import { ShopContext } from "../../Providers/ShopProvidre";
+import { Image_URL } from "../../Providers";
+import { ScrollView } from "react-native-gesture-handler";
+import { SuccessPopup } from "../../Components/AlertPopup";
+import { AppContext } from "../../Providers/AppProvider";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import useLoadingFn from "../../Hook/useLoadingFn";
+import { store } from "../../Store";
 const YourCart = () => {
   const navigation = useNavigation();
   const {
@@ -30,6 +32,7 @@ const YourCart = () => {
   const [count, setcount] = useState(1);
   const [loader, setLoader] = useState(false);
 
+  console.log("store.getState().user?.token", store.getState().user?.token);
 
   useEffect(() => {
     setLoader(true);
@@ -47,12 +50,12 @@ const YourCart = () => {
     ? 0
     : parseInt(data[data?.length - 1]?.finalPrice);
   //  console.log(data[data?.length - 1]?.finalPrice,"zzzzzzzzzzzzzzzzzzzzzz");
-  const {ActiveSuccessPopup, setActiveErrorPopup, ActiveErrorPopup} =
+  const { ActiveSuccessPopup, setActiveErrorPopup, ActiveErrorPopup } =
     useContext(AppContext);
   const [t, sett] = useState(0);
   useEffect(() => {
     (async () => {
-      await AsyncStorage.setItem('count', `${YourCartListData.length}`);
+      await AsyncStorage.setItem("count", `${YourCartListData.length}`);
     })();
     if (Array.isArray(YourCartListData) && YourCartListData.length > 0) {
       setData(YourCartListData);
@@ -71,7 +74,7 @@ const YourCart = () => {
         ? t - decrease.amount
         : increase.state && t > 0
         ? +(t + increase.amount)
-        : t,
+        : t
     );
   }, [increase.count, decrease.count]);
 
@@ -80,54 +83,59 @@ const YourCart = () => {
     CheckOutDetail({
       params: {},
       onSuccess: () => {
-        setLoader(false), navigation.navigate('CheckOut');
+        setLoader(false), navigation.navigate("CheckOut");
       },
     });
   };
   const backToHome = () => {
-    navigation.navigate('Homes');
+    navigation.navigate("Homes");
   };
+
+  console.log("YourCartListData", YourCartListData);
 
   // console.log(YourCartListData,'YourCartListDataYourCartListData',total,decrease.amount,increase.amount,decrease.state,increase.state)
 
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
-      <BackComponent text={'Your Cart'} />
+    <View style={{ flex: 1, backgroundColor: "#fff" }}>
+      <BackComponent text={"Your Cart"} />
       {YourCartListData.length == 0 ? (
-        <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
+        <View
+          style={{ justifyContent: "center", alignItems: "center", flex: 1 }}
+        >
           <Image
             source={IMAGE.EmptyCart}
             resizeMode="contain"
-            style={{width: 102, height: 108, marginTop: 20}}
+            style={{ width: 102, height: 108, marginTop: 20 }}
           />
           <Text
             style={{
-              color: '#495765',
+              color: "#495765",
               fontSize: 21,
               fontWeight: 600,
               marginTop: 18,
-            }}>
-            {'No items here'}
+            }}
+          >
+            {"No items here"}
           </Text>
-          <Text style={{color: 'grey', fontSize: 15, marginTop: 4}}>
-            {'Your One Pantry Cart is Empty'}
+          <Text style={{ color: "grey", fontSize: 15, marginTop: 4 }}>
+            {"Your One Pantry Cart is Empty"}
           </Text>
           <Button
-            title={'Back To Home'}
+            title={"Back To Home"}
             style={{
               marginTop: 35,
               backgroundColor: COLORS.Green,
               borderRadius: 32,
-              alignSelf: 'center',
+              alignSelf: "center",
               marginBottom: 50,
               width: wp(45),
             }}
-            color={{color: '#fff'}}
+            color={{ color: "#fff" }}
             onPress={backToHome}
           />
         </View>
       ) : (
-        <ScrollView style={{padding: 20}}>
+        <ScrollView style={{ padding: 20 }}>
           {loader ? <ActivityIndicator color={COLORS.Green} /> : null}
           {loadercount ? <ActivityIndicator color={COLORS.Green} /> : null}
           {data &&
@@ -153,29 +161,31 @@ const YourCart = () => {
             })}
           <Text
             style={{
-              fontWeight: '600',
+              fontWeight: "600",
               fontSize: 20,
-              color: '#000000B2',
-              textAlign: 'right',
+              color: "#000000B2",
+              textAlign: "right",
               marginRight: 20,
-            }}>
-            Total:{' '}
+            }}
+          >
+            Total:{" "}
             <Text
-              style={{fontWeight: '600', fontSize: 20, color: '#56AB2F'}}>{`$ ${
+              style={{ fontWeight: "600", fontSize: 20, color: "#56AB2F" }}
+            >{`$ ${
               t == 0 ? data[data?.length - 1]?.finalPrice ?? 0 : t
             }`}</Text>
           </Text>
           <Button
-            title={'Checkout'}
+            title={"Checkout"}
             style={{
               marginTop: 35,
               backgroundColor: COLORS.Green,
               borderRadius: 15,
-              alignSelf: 'center',
+              alignSelf: "center",
               marginBottom: 50,
               width: wp(45),
             }}
-            color={{color: '#fff'}}
+            color={{ color: "#fff" }}
             onPress={OnCheckout}
           />
         </ScrollView>

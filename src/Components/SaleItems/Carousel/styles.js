@@ -1,11 +1,11 @@
-import {StyleSheet} from 'react-native';
-import {colors} from '../../../Constant';
-import {hp, wp} from '../../../Utils';
+import { StyleSheet } from "react-native";
+import { colors } from "../../../Constant";
+import { hp, wp } from "../../../Utils";
 
 const useStyle = () => {
   return StyleSheet.create({
     carouselContainer: {
-      alignItems: 'center',
+      alignItems: "center",
       height: hp(25),
       width: wp(100),
       backgroundColor: colors.maroon,
@@ -19,18 +19,21 @@ const useStyle = () => {
       marginTop: 15,
       borderRadius: 5,
       backgroundColor: colors.geraldine,
-      justifyContent: 'center',
-      alignItems: 'center',
-      alignSelf: 'flex-end',
+      justifyContent: "center",
+      alignItems: "center",
+      alignSelf: "flex-end",
+      position: "absolute",
+      zIndex: 999,
     },
     categoryName: {
-      fontWeight: '500',
+      fontWeight: "500",
       fontSize: 10,
       color: colors.congoPink,
     },
+    imageContainer: {},
     image: {
-      width: 130,
-      height: 150,
+      width: "100%",
+      height: "100%",
     },
     dummyImage: {
       width: 130,
@@ -59,8 +62,8 @@ const useStyle = () => {
     },
     modalView: {
       margin: 0,
-      alignItems: 'center',
-      justifyContent: 'center',
+      alignItems: "center",
+      justifyContent: "center",
       backgroundColor: colors.black80,
     },
     modal: {
@@ -68,8 +71,8 @@ const useStyle = () => {
       width: wp(90),
       borderRadius: 20,
       backgroundColor: colors.monza,
-      alignItems: 'center',
-      justifyContent: 'center',
+      alignItems: "center",
+      justifyContent: "center",
     },
   });
 };
