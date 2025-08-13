@@ -1,8 +1,8 @@
-import {StyleSheet} from 'react-native';
-import {colors} from '../../../Constant';
-import {wp} from '../../../Utils';
-import {hp} from '../../Config';
-import {vs} from 'react-native-size-matters';
+import { StyleSheet } from "react-native";
+import { colors } from "../../../Constant";
+import { wp } from "../../../Utils";
+import { hp } from "../../Config";
+import { vs } from "react-native-size-matters";
 
 const useStyle = () => {
   return StyleSheet.create({
@@ -10,8 +10,8 @@ const useStyle = () => {
       flex: 1,
       padding: 0,
       margin: 0,
-      alignItems: 'flex-end',
-      justifyContent: 'flex-end',
+      alignItems: "flex-end",
+      justifyContent: "flex-end",
     },
     modalView: {
       width: wp(100),
@@ -22,7 +22,7 @@ const useStyle = () => {
       backgroundColor: colors.white,
     },
     image: {
-      alignSelf: 'center',
+      alignSelf: "center",
       height: 160,
       width: 150,
     },
@@ -33,7 +33,7 @@ const useStyle = () => {
       marginTop: 15,
       fontSize: 20,
       color: colors.primary,
-      fontWeight: '600',
+      fontWeight: "600",
     },
     description: {
       marginTop: 10,
@@ -43,28 +43,28 @@ const useStyle = () => {
       marginTop: 10,
     },
     otpTextInput: {
-      width: 40,
-      height: 40,
+      alignItems: "center",
+      justifyContent: "center",
       borderRadius: 18,
       borderWidth: 1,
-      backgroundColor: 'white',
+      backgroundColor: "white",
       borderColor: colors.primary,
       fontSize: 22,
       color: colors.primary,
       elevation: 5,
     },
     contentContainer: {
-      alignItems: 'center',
+      alignItems: "center",
     },
     resendButton: {
-      alignSelf: 'center',
+      alignSelf: "center",
       marginBottom: 10,
     },
     resendText: {
       fontSize: 15,
       color: colors.primary,
-      textDecorationLine: 'underline',
-      fontWeight: '500',
+      textDecorationLine: "underline",
+      fontWeight: "500",
     },
     button: {
       marginHorizontal: 30,

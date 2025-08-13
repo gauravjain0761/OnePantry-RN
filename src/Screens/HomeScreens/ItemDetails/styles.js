@@ -14,7 +14,7 @@ const useStyle = () => {
       height: 18,
     },
     contentContainerStyle: {
-      paddingBottom: 100,
+      paddingBottom: 50,
     },
     weight: {
       fontWeight: '500',
